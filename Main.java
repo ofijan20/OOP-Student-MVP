@@ -1,59 +1,63 @@
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        
+
         Scanner input = new Scanner(System.in);
         StudentManager manager = new StudentManager();
-        
+
         int choice;
-        
+
         do {
-            
+
             System.out.println("\n===== Student Management System =====");
             System.out.println("1. Add Student");
             System.out.println("2. Show Students");
             System.out.println("3. Exit");
             System.out.print("Enter choice: ");
-            
+
             choice = input.nextInt();
             input.nextLine();
+
             switch(choice) {
-    
-    case 1:
-        
-        System.out.print("Enter name: ");
-        String name = input.nextLine();
-        
-        System.out.print("Enter age: ");
-        int age = input.nextInt();
-        input.nextLine();
-        
-        System.out.print("Enter student ID: ");
-        String id = input.nextLine();
-        
-        System.out.print("Enter grade: ");
-        double grade = input.nextDouble();
-        
-        Student student = new Student(name, age, id, grade);
-        
-        manager.addStudent(student);
-        
-        break;
-                    case 2:
-        manager.showStudents();
-        break;
 
-    case 3:
-        System.out.println("Exiting program...");
-        break;
+                case 1:
 
-    default:
-        System.out.println("Invalid choice.");
-}
+                    System.out.print("Enter name: ");
+                    String name = input.nextLine();
 
-} while(choice != 3);
+                    System.out.print("Enter age: ");
+                    int age = input.nextInt();
+                    input.nextLine();
 
-input.close();
-}
+                    System.out.print("Enter student ID: ");
+                    String id = input.nextLine();
+
+                    System.out.print("Enter grade: ");
+                    double grade = input.nextDouble();
+
+                    // Runtime Polymorphism
+                    Person p = new Student(name, age, id, grade);
+
+                    manager.addStudent((Student)p);
+
+                    break;
+
+                case 2:
+                    manager.showStudents();
+                    break;
+
+                case 3:
+                    System.out.println("Exiting program...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice.");
+            }
+
+        } while(choice != 3);
+
+        input.close();
+    }
 }
