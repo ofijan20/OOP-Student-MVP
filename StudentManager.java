@@ -28,4 +28,22 @@ public class StudentManager {
             student.displayInfo();
         }
     }
+
+    // Search student by ID
+    public Student searchStudent(String id) {
+
+        // Loop through all students
+        for(Student student : students) {
+
+            // Compare IDs
+            if(student.getStudentId().equalsIgnoreCase(id)) {
+
+                // Return matching student
+                return student;
+            }
+        }
+
+        // If no student found
+        return null;
+    }
 }
