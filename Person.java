@@ -1,4 +1,6 @@
 public class Person {
+
+    // Encapsulation
     private String name;
     private int age;
 
@@ -8,17 +10,28 @@ public class Person {
         this.age = age;
     }
 
-    // Getters (Encapsulation)
+    // Getters and Setters
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getAge() {
         return age;
     }
 
-    // Method (for testing later)
+    public void setAge(int age) {
+        if(age > 0) {
+            this.age = age;
+        }
+    }
+
+    // Polymorphism method
     public void displayInfo() {
-        System.out.println("Name: " + name + ", Age: " + age);
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
     }
 }
