@@ -14,7 +14,8 @@ public class Main {
             System.out.println("\n===== Student Management System =====");
             System.out.println("1. Add Student");
             System.out.println("2. Show Students");
-            System.out.println("3. Exit");
+            System.out.println("3. Search Student");
+            System.out.println("4. Exit");
             System.out.print("Enter choice: ");
 
             choice = input.nextInt();
@@ -46,8 +47,28 @@ public class Main {
                 case 2:
                     manager.showStudents();
                     break;
-
+                    
                 case 3:
+
+                    System.out.print("Enter student ID to search: ");
+
+                    String searchId = input.nextLine();
+
+                    Student foundStudent = manager.searchStudent(searchId);
+
+                    if(foundStudent != null) {
+
+                        System.out.println("\nStudent Found:");
+                        foundStudent.displayInfo();
+
+                    } else {
+
+                        System.out.println("Student not found.");
+                    }
+
+                    break;
+      
+                case 4:
                     System.out.println("Exiting program...");
                     break;
 
@@ -55,7 +76,7 @@ public class Main {
                     System.out.println("Invalid choice.");
             }
 
-        } while(choice != 3);
+        } while(choice != 4);
 
         input.close();
     }
